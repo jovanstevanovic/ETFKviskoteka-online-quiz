@@ -1,0 +1,122 @@
+<form class="form-group">
+  <table class="table table-responsive-md" style="text-align : center;">
+      <tr>
+        <td *ngIf="successMessage" colspan="2">
+          <div class="alert alert-success" role="alert">
+            <strong>Poruka :</strong> {{ successMessage }}
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td *ngIf="failMessage" colspan="2">
+          <div class="alert alert-danger" role="alert">
+            <strong>Poruka :</strong> {{ failMessage }}
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          Igrajte online:
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='createNewGame()' class="btn btn-info">Kreiraj novu igru</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='joinGame()' class="btn btn-info">Pridruzi se zapocetoj igri</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          Igrajte solo:
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='playSoloGame()' class="btn btn-info">Igraj solo</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          Pregledajte rezultate:
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='bestTodayPlayers()' class="btn btn-info">Najbolji igraci danas</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='playedGamesInPrev7Days()' class="btn btn-info">Sve partije u prethodnih 7 dana</button>
+        </td>
+      </tr>
+  </table>
+</form>
+
+<table *ngIf="bestPlayersForToday" class="table table-responsive-md" style="text-align : center;">
+  <tr>
+    <td *ngIf="message" colspan="2">
+      <div class="alert alert-danger" role="alert">
+        <strong>Poruka :</strong> {{ message }}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Korisnicko ime
+    </td>
+    <td>
+      Postignuti rezultat
+    </td>
+  </tr>
+  <tr *ngFor='let user of usersForToday'>
+    <td>
+      {{ user._id }}
+    </td>
+    <td>
+      {{ user.total }}
+    </td>
+  </tr>
+</table>
+
+<table *ngIf="allPlayedGamesIn7DaysBool" class="table table-responsive-md" style="text-align : center;">
+  <tr>
+    <td *ngIf="message" colspan="2">
+      <div class="alert alert-danger" role="alert">
+        <strong>Poruka :</strong> {{ message }}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Igrac 1
+    </td>
+    <td>
+      Igrac 2
+    </td>
+    <td>
+      Rezultate prvog igraca
+    </td>
+    <td>
+      Rezultate drugog igraca
+    </td>
+  </tr>
+  <tr *ngFor='let user of allPlayedGamesIn7Days'>
+    <td>
+      {{ user.username1 }}
+    </td>
+    <td>
+      {{ user.username2 }}
+    </td>
+    <td>
+      {{ user.user1score }}
+    </td>
+    <td>
+      {{ user.user2score }}
+    </td>
+  </tr>
+</table>

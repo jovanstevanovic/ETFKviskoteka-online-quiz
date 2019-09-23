@@ -1,0 +1,49 @@
+<form class="form-group">
+  <table class="table table-responsive-md" style="text-align : center;">
+    <tbody>
+      <tr>
+        <td *ngIf="message" colspan="2">
+          <div class="alert alert-danger" role="alert">
+              <strong>Poruka :</strong> {{ message }}
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Korisnicko ime:
+        </td>
+        <td>
+          <input type='text' name='username' [(ngModel)]='username'>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Lozinka:
+        </td>
+        <td>
+          <input type='password' name='password' [(ngModel)]='password'>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='login()' class="btn btn-info">Prijavi se</button>
+        </td>
+      </tr>
+      <tr>
+          <td colspan="2">
+              <a routerLink='/register' class="btn-link">Registruj se</a>
+          </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+            <a routerLink='/changePassword' class="btn-link">Promeni lozinku</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <a routerLink='/guest' class="btn-link">Nastavi kao gost</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>

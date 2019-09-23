@@ -1,0 +1,91 @@
+<form class="form-group">
+  <table class="table table-responsive-md" style="text-align : center;">
+      <tr>
+        <td *ngIf="successMessage" colspan="2">
+          <div class="alert alert-info" role="alert">
+            <strong>Poruka :</strong> {{ successMessage }}
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td *ngIf="failMessage" colspan="2">
+          <div class="alert alert-danger" role="alert">
+              <strong>Poruka :</strong> {{ failMessage }}
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Pitanje
+        </td>
+        <td>
+          <input type='text' name='anagramQuestion' [(ngModel)]='anagramQuestion'>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Odgovor
+        </td>
+        <td>
+          <input type='text' name='anagramAnswer' [(ngModel)]='anagramAnswer'>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Uploadujete fajl - anagram
+        </td>
+        <td>
+            <input type= "file" (change)="onFileChanged($event)">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='insertNewAnagram()' class="btn btn-info">Novi anagram</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Uploadujete fajl - geografija
+        </td>
+        <td>
+            <input type= "file" (change)="onFileChangedGeo($event)">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='insertNewGeoTerms()' class="btn btn-info">Novi termini</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='resolveTerms()' class="btn btn-info">Prikazi nerazresene terimne</button>
+        </td>
+      </tr>
+  </table>
+</form>
+
+<table *ngIf="unresolvedTermsBool" class="table table-responsive-md" style="text-align : center;">
+  <tr>
+    <td *ngIf="unresolvedTermsMessage" colspan="3">
+      <div class="alert alert-info" role="alert">
+        <strong>Poruka :</strong> {{ unresolvedTermsMessage }}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      Nerazreseni termini
+    </td>
+  </tr>
+  <tr *ngFor='let term of unsersolvedTerms'>
+    <td>
+      {{ term.name }}
+    </td>
+    <td>
+      <button (click)="acceptSymbol(term)" class="btn btn-success">Prihvati</button>
+    </td>
+    <td>
+      <button (click)="declineSymbol(term)" class="btn btn-danger">Odbij</button>
+    </td>
+  </tr>
+</table>

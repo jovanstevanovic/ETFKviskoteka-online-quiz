@@ -1,0 +1,125 @@
+<form class="form-groupd">
+  <table class="table table-responsive-md" style="text-align : center;">
+      <tr>
+        <td colspan="3">
+          {{ timer }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Slovo za igru:
+        </td>
+        <td colspan="2">
+          {{ letter }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Drzava
+        </td>
+        <td>
+          <input type='text' name='countryAnswer' [(ngModel)]='countryAnswer'>
+        </td>
+        <td *ngIf="messages[0]">
+          {{ messages[0] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Grad
+        </td>
+        <td>
+          <input type='text' name='cityAnswer' [(ngModel)]='cityAnswer'>
+        </td>
+        <td *ngIf="messages[1]">
+          {{ messages[1] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Jezero
+        </td>
+        <td>
+          <input type='text' name='lakeAnswer' [(ngModel)]='lakeAnswer'>
+        </td>
+        <td *ngIf="messages[2]">
+          {{ messages[2] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Planina
+        </td>
+        <td>
+          <input type='text' name='mountAnswer' [(ngModel)]='mountAnswer'>
+        </td>
+        <td *ngIf="messages[3]">
+          {{ messages[3] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Reka
+        </td>
+        <td>
+          <input type='text' name='riverAnswer' [(ngModel)]='riverAnswer'>
+        </td>
+        <td *ngIf="messages[4]">
+          {{ messages[4] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Zivotinja
+        </td>
+        <td>
+          <input type='text' name='animalAnswer' [(ngModel)]='animalAnswer'>
+        </td>
+        <td *ngIf="messages[5]">
+          {{ messages[5] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Biljka
+        </td>
+        <td>
+          <input type='text' name='plantAnswer' [(ngModel)]='plantAnswer'>
+        </td>
+        <td *ngIf="messages[6]">
+          {{ messages[6] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Muzicki sastav
+        </td>
+        <td>
+          <input type='text' name='musicAnswer' [(ngModel)]='musicAnswer'>
+        </td>
+        <td *ngIf="messages[7]">
+          {{ messages[7] }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <button (click)='sendAnswers()' class="btn btn-info">Potvrdi odgovor</button>
+        </td>
+      </tr>
+  </table>
+</form>
+
+<div class="row">
+  <div class="col-md-3">
+    &nbsp;
+  </div>
+  <div class="col-md-6 alert alert-info" style="text-align: center; margin-top: 10px">
+    Konacni rezultat: {{ finalScore }}
+  </div>
+  <div class="col-md-3">
+    &nbsp;
+    <button *ngIf="submittedAnswers == 8" type="button" class="btn btn-success" (click)="endGameButton()" style="margin-top: 15px">
+      Zavrsi
+    </button>
+  </div>
+</div>

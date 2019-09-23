@@ -1,0 +1,139 @@
+<div *ngIf="!numbersChoosenBool">
+  <table class="table table-responsive-md table-striped"  style="text-align : center">
+    <thead>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>Rezultat</td>
+    </thead>
+    <tbody>
+        <tr>
+          <td>{{ given_numbers[0] }}</td>
+          <td>{{ given_numbers[1] }}</td>
+          <td>{{ given_numbers[2] }}</td>
+          <td>{{ given_numbers[3] }}</td>
+          <td>{{ given_numbers[4] }}</td>
+          <td>{{ given_numbers[5] }}</td>
+          <td>{{ choosenNumber }}</td>
+        </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-info" (click)="stopNumberCount()">Stop</button>
+</div>
+
+<div *ngIf="numbersChoosenBool">  
+  <div class="row" >
+      <table class="table table-responsive-md" style="text-align: center">
+        <tbody>
+          <tr>
+            <td colspan="7">
+                {{ timer }}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="7">
+              {{ choosenNumber }}
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" style="text-align: center;">Brojevi: </th>
+            <td *ngFor="let number of given_numbers; let i = index">
+              <button type="button" class="btn btn-info" [disabled]="mojBrojGivenNumberClicked[i]" (click)="chooseGivenNumber(i)">
+                {{ number }}
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" style="text-align: center;">Operacije: </th>
+            <td>
+              <button type="button" class="btn btn-info" (click)="mojBrojLeftPar()">
+                (
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-info" (click)="mojBrojRightPar()">
+                )
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-info" (click)="mojBrojPlus()">
+                +
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-info" (click)="mojBrojMinus()">
+                -
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-info" (click)="mojBrojMul()">
+                *
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-info" (click)="mojBrojDiv()">
+                /
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      &nbsp;
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <input type="text" [(ngModel)]='yourExpressionMojBroj' name='yourExpressionMojBroj' disabled />
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <button class="btn btn-danger" (click)="deletePartOfExpression()" style="margin-top: 10px">Izbrisi deo izraz</button>
+        </li>
+        <li class="list-inline-item">
+          <button class="btn btn-danger" (click)="deleteWholeExpression()" style="margin-top: 10px">Izbrisi ceo izraz</button>
+        </li>
+      </ul>
+      <button type="button" class="btn btn-success" [disabled]="submitedMojBrojAnswer" (click)="submitMojBrojAnswer()">
+          Posalji odgovor
+      </button>
+    </div>
+    <div class="col-md-2">
+      &nbsp;
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      &nbsp;
+    </div>
+    <div class="col-md-6 alert alert-info" style="text-align: center; margin-top: 10px">
+      Konacni rezultat: {{ finalScore }}
+    </div>
+    <div class="col-md-3">
+      &nbsp;
+      <button *ngIf="endGame" type="button" class="btn btn-success" (click)="nextGame()" style="margin-top: 15px">
+        Zavrsi
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      &nbsp;
+    </div>
+    <div class="col-md-6" style="text-align: center;">
+      <div *ngIf="slagalicaErrorMessage">
+        <div class="alert alert-danger">
+          <strong>Poruka :</strong> {{ mojBrojErrorMessage }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      &nbsp;
+    </div>
+  </div>
+</div>

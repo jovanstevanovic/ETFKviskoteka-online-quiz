@@ -1,0 +1,107 @@
+<form class="form-group">
+  <table class="table table-responsive-md" style="text-align : center;">
+      <tr>
+        <td *ngIf="successMessage" colspan="2">
+          <div class="alert alert-success" role="alert">
+            <strong>Poruka :</strong> {{ successMessage }}
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td *ngIf="failMessage" colspan="2">
+          <div class="alert alert-danger" role="alert">
+            <strong>Poruka :</strong> {{ failMessage }}
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          {{ timer }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          Anagram1:
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Pitanje
+        </td>
+        <td *ngIf="anagram1">
+          {{ anagram1.question }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Odgovor
+        </td>
+        <td>
+          <input type='text' name='anagramAnswer1' [(ngModel)]='anagramAnswer1'>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='sendFirstAnswer()' class="btn btn-info">Potvrdi odgovor</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" *ngIf="answerMessage1">
+          <div class="alert alert-info" role="alert">
+            {{ answerMessage1 }}
+          </div>
+        </td>
+      </tr>
+  </table>
+</form>
+
+<table *ngIf="secondAnagram" class="table table-responsive-md" style="text-align : center;">
+  <tr>
+    <td colspan="2">
+      Anagram2:
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Pitanje
+    </td>
+    <td *ngIf="anagram2">
+      {{ anagram2.question }}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Odgovor
+    </td>
+    <td>
+      <input type='text' name='anagramAnswer2' [(ngModel)]='anagramAnswer2'>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <button (click)='sendSecondAnswer()' class="btn btn-info">Potvrdi odgovor</button>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" *ngIf="answerMessage2">
+      <div class="alert alert-info" role="alert">
+        {{ answerMessage2 }}
+      </div>
+    </td>
+  </tr>
+</table>
+
+<div class="row">
+  <div class="col-md-3">
+    &nbsp;
+  </div>
+  <div class="col-md-6 alert alert-info" style="text-align: center; margin-top: 10px">
+    Konacni rezultat: {{ finalScore }}
+  </div>
+  <div class="col-md-3">
+    &nbsp;
+    <button *ngIf="nextGameBool" type="button" class="btn btn-success" (click)="nextGame()" style="margin-top: 15px">
+      Zavrsi
+    </button>
+  </div>
+</div>

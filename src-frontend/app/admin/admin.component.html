@@ -1,0 +1,98 @@
+<form class="form-group">
+  <table class="table table-responsive-md" style="text-align : center;">
+      <tr>
+        <td *ngIf="successMessage" colspan="2">
+          <div class="alert alert-success" role="alert">
+            <strong>Poruka :</strong> {{ successMessage }}
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td *ngIf="failMessage" colspan="2">
+          <div class="alert alert-danger" role="alert">
+            <strong>Poruka :</strong> {{ failMessage }}
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Naziv
+        </td>
+        <td>
+          <input type='text' name='dayGameName' [(ngModel)]='dayGameName'>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Datum
+        </td>
+        <td>
+          <input type='date' name='dayGameDate' [(ngModel)]='dayGameDate'>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='insertDayGame()' class="btn btn-info">Nova igra</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='resolveRegisterRequeststs()' class="btn btn-info">Prikazi nerazresene zahteve</button>
+        </td>
+      </tr>
+  </table>
+</form>
+  
+<table *ngIf="dayGameBool && !failDuringCreation" class="table table-responsive-md" style="text-align : center;">
+  <tr>
+    <td *ngIf="dayErrorMessage" colspan="3">
+      <div class="alert alert-info" role="alert">
+          <strong>Poruka :</strong> {{ dayErrorMessage }}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      Svi anagrami
+    </td>
+  </tr>
+  <tr *ngFor='let anagram of listOfAnagrams'>
+    <td>
+      {{ anagram.question }}
+    </td>
+    <td>
+      {{ anagram.answer }}
+    </td>
+    <td>
+      <button (click)="acceptAnagram(anagram)" class="btn btn-success">Prihvati</button>
+    </td>
+  </tr>
+</table>
+
+<table *ngIf="unresolvedRegisterReqBool" class="table table-responsive-md" style="text-align : center;">
+  <tr>
+    <td *ngIf="reqErrorMessage" colspan="3">
+      <div class="alert alert-info" role="alert">
+        <strong>Poruka :</strong> {{ reqErrorMessage }}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      Zahtevi
+    </td>
+  </tr>
+  <tr *ngFor='let req of listOfReqs'>
+    <td>
+      {{ req.username }}
+    </td>
+    <td>
+      <button (click)="acceptReq(req)" class="btn btn-success">Prihvati</button>
+    </td>
+    <td>
+      <button (click)='declineReq(req)' class="btn btn-danger">Odbij</button>
+    </td>
+  </tr>
+</table>
+
+  

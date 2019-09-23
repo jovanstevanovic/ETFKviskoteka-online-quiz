@@ -1,0 +1,100 @@
+<form class="form-group">
+  <table class="table table-responsive-md" style="text-align : center">
+    <tbody>
+        <tr>
+          <td *ngIf="message" colspan="2">
+            <div class="alert alert-danger" role="alert">
+              <strong>Poruka :</strong> {{ message }}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td *ngIf="successMessage" colspan="2">
+              <div class="alert alert-info" role="alert">
+                <strong>Poruka :</strong> {{ successMessage }}
+              </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Ime:</td>
+          <td>
+            <input type='text' name='name' [(ngModel)]='name' >
+          </td>
+        </tr>
+        <tr>
+          <td>Prezime:</td>
+          <td>
+            <input type='text' name='surname' [(ngModel)]='surname' >
+          </td>
+        </tr>
+        <tr>
+          <td>E-mail:</td>
+          <td>
+            <input type='email' name='email' [(ngModel)]='email' >
+          </td>
+        </tr>
+        <tr>
+          <td>Zanimanje:</td>
+          <td>
+            <input type='text' name='job' [(ngModel)]='job' >
+          </td>
+        </tr>
+        <tr>
+          <td>Korisnicko ime:</td>
+          <td>
+            <input type='text' name='username' [(ngModel)]='username' >
+          </td>
+        </tr>
+        <tr>
+          <td>Lozinka:</td>
+          <td>
+            <input type='password' name='password' [(ngModel)]='password'>
+          </td>
+        </tr>
+        <tr>
+          <td>Potvrda lozinke:</td>
+          <td>
+            <input type='password' name='password2' [(ngModel)]='password2'>
+          </td>
+        </tr>
+        <tr>
+          <td>Pol:</td>
+          <td>
+            <select [(ngModel)]='sex' name='sex'>
+                <option>M</option>
+                <option>Z</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>JMBG:</td>
+          <td>
+            <input type='text' name='jmbg' [(ngModel)]='jmbg'>
+          </td>
+        </tr>
+        <tr>
+          <td>Slika:</td>
+          <td>
+            <input type= "file" (change)="onFileChanged($event)" accept="image/jpeg, image/jpg, image/png">
+          </td>
+        </tr>
+        <tr>
+          <td>Tajno pitanje:</td>
+          <td>
+            <input type='text' name='secretQuestion' [(ngModel)]='secretQuestion' >
+          </td>
+        </tr>
+        <tr>
+          <td>Odgovor tajnog pitanja:</td>
+          <td>
+            <input type='text' name='secretQuestionAnswer' [(ngModel)]='secretQuestionAnswer' >
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button (click)='onRegisterClick()' class="btn btn-info">Registruj se</button>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</form>

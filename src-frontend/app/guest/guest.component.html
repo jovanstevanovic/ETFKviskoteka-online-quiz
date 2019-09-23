@@ -1,0 +1,86 @@
+<form class="form-group">
+  <table class="table table-responsive-md" style="text-align : center">
+      <tr>
+        <td colspan="2">
+          Mozete videti neke od sledecih tabla:
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='bestFromCurrentMonth()' class="btn btn-info">Najbolji iz tekuceg meseca</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='bestFromPast20days()' class="btn btn-info">Najbolji iz prethodnih 20 dana</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          Ukoliko zelite i Vi da ucestvujete u igri mozete se prijaviti ili registrovati:
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='loginForQuests()' class="btn btn-info">Prijavi se</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)='registerForQuests()' class="btn btn-info">Registruj se</button>
+        </td>
+      </tr>
+  </table>
+</form>
+
+<table *ngIf="besfForCurrentMonthBool" class="table table-responsive-md" style="text-align : center">
+  <tr>
+    <td *ngIf="message" colspan="2">
+      <div class="alert alert-danger" role="alert">
+        <strong>Poruka :</strong> {{ message }}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Korisnicko ime
+    </td>
+    <td>
+      Postignuti rezultat
+    </td>
+  </tr>
+  <tr *ngFor='let user of usersForCurrentMonth'>
+    <td>
+      {{ user._id }}
+    </td>
+    <td>
+      {{ user.total }}
+    </td>
+  </tr>
+</table>
+
+<table *ngIf="besfFromPast20Days" class="table table-responsive-md" style="text-align : center">
+  <tr>
+    <td *ngIf="message" colspan="2">
+      <div class="alert alert-danger" role="alert">
+        <strong>Poruka :</strong> {{ message }}
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Korisnicko ime
+    </td>
+    <td>
+      Postignuti rezultat
+    </td>
+  </tr>
+  <tr *ngFor='let user of usersForPrev20Days'>
+    <td>
+      {{ user._id }}
+    </td>
+    <td>
+      {{ user.total }}
+    </td>
+  </tr>
+</table>
