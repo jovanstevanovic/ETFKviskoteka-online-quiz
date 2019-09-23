@@ -1,0 +1,50 @@
+{
+    "_id" : ObjectId("5d46c616b3f9cbbaa2767eae"),
+    "username1" : "Jovan",
+    "username2" : "Djordje",
+    "user1score" : 100,
+    "user2score" : 200,
+    "month" : 7,
+    "time" : 5,
+    "day" : 4,
+    "secondPlayerInGame" : true
+}
+
+{
+    "_id" : ObjectId("5d46c616b3f9cbbaa2767eb0"),
+    "username1" : "Jovan1",
+    "username2" : "Djordje",
+    "user1score" : 100,
+    "user2score" : 200,
+    "month" : 7,
+    "time" : 4,
+    "day" : 5,
+    "secondPlayerInGame" : true
+}
+
+{
+    "_id" : ObjectId("5d46c616b3f9cbbaa2767eb2"),
+    "username1" : "Jovan",
+    "username2" : "Jovan1",
+    "user1score" : 100,
+    "user2score" : 200,
+    "month" : 7,
+    "time" : 6,
+    "day" : 4,
+    "secondPlayerInGame" : true
+}
+
+{
+    "_id" : ObjectId("5d49f5d00d8e5312f0662265"),
+    "username1" : "user2",
+    "username2" : "user4",
+    "user1score" : 0,
+    "user2score" : 0,
+    "time" : 1565128144168.0,
+    "day" : 6,
+    "month" : 7,
+    "secondPlayerInGame" : true,
+    "__v" : 0
+}
+
+

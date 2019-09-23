@@ -1,0 +1,16 @@
+{
+	"Anagrami": [
+		{
+"question": "Krasan je odmor",
+"answer": "Jadransko more"
+},
+{
+"question": "Ura, bekrije!",
+"answer": "Bure rakije"
+},
+{
+"question": "Preki driblaju blesave",
+"answer": "Vlada republike Srbije"
+}
+]
+}
